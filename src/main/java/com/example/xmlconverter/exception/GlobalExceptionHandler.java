@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     private final HttpHeaders headers;
 
     public GlobalExceptionHandler() {

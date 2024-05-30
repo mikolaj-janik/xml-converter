@@ -50,20 +50,24 @@ class XmlconverterApplicationTests {
 	@Test
 	void getProductByName() throws IOException {
 		String expectedName = "glass";
-		List<Product> products = converterService.getProductByName(expectedName, filePath);
 		List<Product> expectedResult = new ArrayList<>();
 		expectedResult.add(expectedProducts.getProductList().get(2));
+
+		List<Product> products = converterService.getProductByName(expectedName, filePath);
+
 		assertEquals(expectedResult, products);
 	}
 
 	@Test
-	void notFoundProductTest() throws IOException {
+	void notFoundProductTest() {
 		String name = "banana";
 
-		ProductNotFoundException e = assertThrows(ProductNotFoundException.class, () -> {
+		assertThrows(ProductNotFoundException.class, () -> {
 			converterService.getProductByName(name, filePath);
 		}, "Exception is not thrown");
 	}
+
+
 
 	@Test
 	void fileNotFoundTest() {
