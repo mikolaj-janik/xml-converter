@@ -23,4 +23,16 @@ public class Product {
 
     @JacksonXmlProperty(localName = "Active")
     private boolean active;
+
+    public Product(int id, String name, String category, String partNumberNr, String companyName, boolean active) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.partNumberNr = partNumberNr;
+        this.companyName = companyName;
+        this.active = active;
+    }
+    public Product() {
+
+    }
 }

@@ -22,4 +22,7 @@ public class Products {
     public int getSize() {
         return productList.size();
     }
+    public void addProduct(Product product) {
+        productList.add(product);
+    }
 }
