@@ -2,6 +2,7 @@ package com.example.xmlconverter.service;
 
 import com.example.xmlconverter.entity.Product;
 import com.example.xmlconverter.entity.Products;
+import com.example.xmlconverter.exception.ProductNotFoundException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,9 @@ public class ConverterServiceImpl implements ConverterService {
         File file = new File(xmlFilePath);
         Products products = xmlMapper.readValue(file, Products.class);
 
+        if (products.getProductList().isEmpty())
+            throw new ProductNotFoundException();
+
         return products.getProductList();
     }
 
@@ -40,6 +44,9 @@ public class ConverterServiceImpl implements ConverterService {
             if (product.getName().equals(name))
                 finalList.add(product);
         }
+
+        if (finalList.isEmpty())
+            throw new ProductNotFoundException(name);
 
         return finalList;
     }
