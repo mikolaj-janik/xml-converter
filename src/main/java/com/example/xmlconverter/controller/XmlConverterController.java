@@ -24,7 +24,7 @@ public class XmlConverterController {
         this.converterService = converterService;
     }
 
-    @GetMapping(value = "getNumberOfProducts", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getNumberOfProducts", produces = MediaType.APPLICATION_JSON_VALUE)
     public int getNumberOfProducts() throws IOException {
         return converterService.getNumberOfRecords(filePath);
     }
@@ -40,4 +40,6 @@ public class XmlConverterController {
     }
 
 }
+
+
 

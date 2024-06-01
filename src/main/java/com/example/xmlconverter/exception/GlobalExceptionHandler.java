@@ -1,5 +1,6 @@
 package com.example.xmlconverter.exception;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,4 +30,11 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, headers, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(JsonParseException.class)
+    public ResponseEntity<ErrorResponse> handleJsonParseException(JsonParseException e) {
+        ErrorResponse errorResponse = new ErrorResponse(e.getMessage() + " (the file cannot be parsed)",
+                                                        HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.BAD_REQUEST);
+    }
 }
+
