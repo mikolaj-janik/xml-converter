@@ -125,7 +125,7 @@ If there are no products in the file, we receive an ErrorResponse object in JSON
 ![image](https://github.com/mikolaj-janik/xml-converter/assets/127678386/8b7c07ac-728a-4c3d-bae8-5228c0bb4295)
 
 ### Getting product by name
-Using endpoint `/api/converter/getProductByName/{name}` we receive the response which is a list of products matching the given name in JSON format.
+Using endpoint `/api/converter/getProductByName/{name}` we receive in JSON the response which is a list of products matching the given name.
 
 ![image](https://github.com/mikolaj-janik/xml-converter/assets/127678386/2647f730-ebaf-48a2-a4cc-f6797bbf3142)
 
